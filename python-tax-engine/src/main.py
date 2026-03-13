@@ -1,26 +1,16 @@
-from tax_rules import FEDERAL_TAX_BRACKETS, BC_TAX_BRACKETS
-from tax_calculator import calculate_tax
-
-
-def calculate_total_tax(income):
-
-    federal_tax = calculate_tax(income, FEDERAL_TAX_BRACKETS)
-    bc_tax = calculate_tax(income, BC_TAX_BRACKETS)
-
-    total_tax = federal_tax + bc_tax
-
-    return {
-        "income": income,
-        "federal_tax": federal_tax,
-        "bc_tax": bc_tax,
-        "total_tax": total_tax
-    }
-
+from data_processor import process_tax_files
+from visualization import plot_income_vs_tax, plot_expenses
 
 if __name__ == "__main__":
 
-    income = 56000
+    t4_file = "../data/t4_sample.csv"
+    expense_file = "../data/expenses_sample.csv"
 
-    result = calculate_total_tax(income)
+    result_df = process_tax_files(t4_file, expense_file)
 
-    print(result)
+    print("\nTax Report:\n")
+    print(result_df)
+
+    # Visualization
+    plot_income_vs_tax(result_df)
+    plot_expenses(result_df)

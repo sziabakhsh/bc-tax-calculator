@@ -1,0 +1,6 @@
+name,vehicle_cost,fuel,insurance,phone,home_office,business_use_percent
+John,0,0,0,0,0,0
+Sara,6000,1800,1500,900,1000,70
+Ali,8000,2200,1700,800,1200,65
+Mary,2000,900,1000,600,700,50
+David,0,0,0,0,0,0
